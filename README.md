@@ -19,5 +19,7 @@ official wordpress based image with:
 `WP_EMAIL`
 
 ## Example usage:
-`docker run -v $(pwd)/volume:/var/app-storage/ -e WORDPRESS_DB_HOST='mariadb' -e WORDPRESS_DB_PASSWORD='secretpassword' -e WP_URL='example.net' -e WP_TITLE='My Awesome Wordpress Site' -e WP_USER='admin' -e WP_PASSWORD='secretpasswordofadmin' WP_EMAIL='admin@example.net' ackee/wordpress`
+```
+docker run -v $(pwd)/volume:/var/app-storage/ -e WORDPRESS_DB_HOST='mariadb' -e WORDPRESS_DB_PASSWORD='secretpassword' -e WP_URL='example.net' -e WP_TITLE='My Awesome Wordpress Site' -e WP_USER='admin' -e WP_PASSWORD='secretpasswordofadmin' WP_EMAIL='admin@example.net' ackee/wordpress
+```
 
