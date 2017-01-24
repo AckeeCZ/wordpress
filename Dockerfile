@@ -1,5 +1,5 @@
 FROM wordpress
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y crudini \
     libfreetype6-dev \
         libmcrypt-dev \
         libpng12-dev \
@@ -16,7 +16,15 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-enable opcache gd
     && rm -rf -- /var/lib/apt/lists/*
 
-COPY php.ini /usr/local/etc/php/conf.d
+#COPY php.ini /usr/local/etc/php/conf.d
+ENV PHP_INI_FILE /usr/local/etc/php/conf.d/php.ini
+RUN crudini --set $PHP_INI_FILE PHP max_input_vars 4000 && \
+    crudini --set $PHP_INI_FILE PHP memory_limit 256M && \
+    crudini --set $PHP_INI_FILE PHP upload_max_filesize 256M && \
+    crudini --set $PHP_INI_FILE PHP post_max_size 300M && \
+    crudini --set $PHP_INI_FILE PHP max_execution_time 100 && \
+    crudini --set $PHP_INI_FILE PHP max_memory_limit 256M
+    
 # set higher limits
 COPY ackee-entrypoint.sh /
 RUN sed -i '$i /ackee-entrypoint.sh' /usr/local/bin/docker-entrypoint.sh
