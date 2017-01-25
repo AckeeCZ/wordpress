@@ -19,7 +19,7 @@ do
 done
 
 # install wordpress
-WP_URL="${WP_URL:-`hostname`}"
+#WP_URL="${WP_URL:-`hostname`}"
 WP_TITLE="${WP_TITLE:-Example}"
 WP_USER="${WP_USER:-test}"
 WP_PASSWORD="${WP_PASSWORD:-ackeetest}"
@@ -39,6 +39,10 @@ for i in twentyseventeen twentysixteen twentyfifteen
 do
    $wp theme is-installed $i || $wp theme install $i
 done
+
+# hotfix URL
+[[ $WP_URL != "" ]] && echo "define('WP_HOME','$WP_URL');" >> wp-config.php
+[[ $WP_URL != "" ]] && echo "define('WP_SITEURL','$WP_URL');" >> wp-config.php
 
 chown -R www-data:www-data /var/www/html $storagePath
 
