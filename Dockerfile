@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y crudini \
         --with-jpeg-dir=/usr/include \
     && docker-php-ext-install gd \
     && docker-php-ext-install mbstring \
-    && docker-php-ext-enable opcache gd
+    && docker-php-ext-enable opcache gd \
     && rm -rf -- /var/lib/apt/lists/*
 
 #COPY php.ini /usr/local/etc/php/conf.d
