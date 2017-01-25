@@ -2,8 +2,8 @@
 set -x
 # add WP memory limits
 configFile=/var/www/html/wp-config.php
-grep 'WP_MAX_MEMORY_LIMIT' $configFile || echo "define( 'WP_MAX_MEMORY_LIMIT', '256M' );" >>$configFile
-grep 'WP_MEMORY_LIMIT' $configFile || echo "define( 'WP_MEMORY_LIMIT', '96M' );" >>$configFile
+#grep 'WP_MAX_MEMORY_LIMIT' $configFile || echo "define( 'WP_MAX_MEMORY_LIMIT', '256M' );" >>$configFile
+#grep 'WP_MEMORY_LIMIT' $configFile || echo "define( 'WP_MEMORY_LIMIT', '96M' );" >>$configFile
 
 # make symbolic links to persistent volume storage
 storagePath=/var/app-storage
