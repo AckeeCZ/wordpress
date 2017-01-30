@@ -40,6 +40,9 @@ do
    $wp theme is-installed $i || $wp theme install $i
 done
 
+# health check file
+echo "yup, I'm here" > /var/www/html/healthz
+
 # hotfix URL
 [[ $WP_URL != "" ]] && echo "define('WP_HOME','$WP_URL');" >> wp-config.php
 [[ $WP_URL != "" ]] && echo "define('WP_SITEURL','$WP_URL');" >> wp-config.php
