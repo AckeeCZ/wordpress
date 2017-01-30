@@ -27,7 +27,7 @@ WP_EMAIL="${WP_EMAIL:-info@example.com}"
 $wp core is-installed || $wp core install --url="$WP_URL" --title="$WP_TITLE" --admin_user="$WP_USER" --admin_password="$WP_PASSWORD" --admin_email="$WP_EMAIL"
 
 # add plugins
-plugins=(wp-stateless)
+plugins=(wp-stateless cloudflare-flexible-ssl)
 for i in ${plugins[*]}
 do
    $wp plugin install $i
