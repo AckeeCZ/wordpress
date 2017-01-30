@@ -11,7 +11,7 @@ wpContentPath=/var/www/html/wp-content
 
 wp='wp --allow-root'
 
-for i in plugins themes;
+for i in plugins themes uploads;
 do
    mkdir -p ${storagePath}/$i
    rm -rf -- ${wpContentPath}/$i
