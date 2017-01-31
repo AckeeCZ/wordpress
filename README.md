@@ -1,7 +1,7 @@
 # Wordpress docker image
 official wordpress based image with:
 
-- persistent storage for `plugins` and `themes`
+- persistent storage for `uploads`, `plugins` and `themes`
 - wp-cli
 - automated wordpress installation
 - automated plugin installation
