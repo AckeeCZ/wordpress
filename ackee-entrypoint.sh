@@ -47,6 +47,9 @@ echo "yup, I'm here" > /var/www/html/healthz
 [[ $WP_URL != "" ]] && echo "define('WP_HOME','$WP_URL');" >> wp-config.php
 [[ $WP_URL != "" ]] && echo "define('WP_SITEURL','$WP_URL');" >> wp-config.php
 
+# forced version
+[[ $WP_FORCE_VERSION != "" ]] && $wp core update --version="$WP_FORCE_VERSION" --locale=en_US --force
+
 chown -R www-data:www-data /var/www/html $storagePath
 
 set +x
