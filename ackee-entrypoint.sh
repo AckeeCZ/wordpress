@@ -50,6 +50,9 @@ echo "yup, I'm here" > /var/www/html/healthz
 # forced version
 [[ $WP_FORCE_VERSION != "" ]] && $wp core update --version="$WP_FORCE_VERSION" --locale=en_US --force
 
+# http basic auth
+[[ $HTTPBASICAUTHUSER != "" ]] && mkdir -p /etc/htpasswd && htpasswd -b /etc/htpasswd/.htpasswd $HTTPBASICAUTHPW $HTTPBASICAUTHUSER
+
 chown -R www-data:www-data /var/www/html $storagePath
 
 set +x
