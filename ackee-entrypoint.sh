@@ -51,7 +51,7 @@ echo "yup, I'm here" > /var/www/html/healthz
 [[ $WP_FORCE_VERSION != "" ]] && $wp core update --version="$WP_FORCE_VERSION" --locale=en_US --force
 
 # http basic auth
-[[ $HTTPBASICAUTHUSER != "" ]] && mkdir -p /etc/htpasswd && htpasswd -cb /etc/htpasswd/.htpasswd $HTTPBASICAUTHPW $HTTPBASICAUTHUSER && mv /httpbasicauthvhost.conf /etc/apache2/sites-available/000-default.conf && service apache2 reload
+[[ $HTTPBASICAUTHUSER != "" ]] && mkdir -p /etc/htpasswd && htpasswd -cb /etc/htpasswd/.htpasswd $HTTPBASICAUTHUSER $HTTPBASICAUTHPW && mv /httpbasicauthvhost.conf /etc/apache2/sites-available/000-default.conf && service apache2 reload
 
 chown -R www-data:www-data /var/www/html $storagePath
 
