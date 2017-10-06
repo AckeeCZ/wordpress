@@ -34,3 +34,6 @@ RUN sed -i '$i /ackee-entrypoint.sh' /usr/local/bin/docker-entrypoint.sh
 RUN curl \
         -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
     && chmod +x /usr/local/bin/wp
+    
+# copy http basic auth vhost conf
+COPY vhost.conf /httpbasicauthvhost.conf
